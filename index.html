@@ -48,31 +48,47 @@
             width: 300px;
             text-align: center;
         }
+        .hidden-element {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
-    <h2 style="font-size: 200%; text-align: center; ">访问者验证</h2>
+    <h2 style="font-size: 200%; text-align: center; ">Q</h2>
 
     <form id="subscriberForm">
-        <label for="fname" style="font-size:150%">问题答案:</label><br>
+        <label for="fname" style="font-size:150%">
+        今天是昨天的明天<br />
+        昨天是前天的明天<br />
+        明天是今天的明天<br />
+        明天会更好指的是哪天的明天？</label><br>
         <input type="text" id="fname" name="fname"><br>
         <input type="submit" value="提交">
     </form>
-
     <p id="message"></p>
+
+
+    <p class="hidden-element" id="myElement" style="text-align:center">
+        柠檬熟了，暖梦死了
+    </p>
+
 
     <script>
         document.getElementById("subscriberForm").addEventListener("submit", function (event) {
             event.preventDefault(); // 阻止表单提交默认行为  
             var userAnswer = document.getElementById("fname").value;
-            var correctAnswer = "123"; // 这里设置正确答案  
+            var correctAnswer = "今天"; // 这里设置答案  
             if (userAnswer === correctAnswer) {
-                document.getElementById("message").textContent = "回答正确，欢迎访问网页内容！";
-                // 这里可以添加你想展示的网页内容  
+                document.getElementById("message").textContent = "回答正确，欢迎访问网页内容！(加载费时可能较长，请耐心等待)";
+
+                document.getElementById("myElement").style.display = "block" 
             } else {
-                document.getElementById("message").textContent = "回答错误，无法访问网页内容。";
-                window.close()
+                document.getElementById("message").textContent = "回答正确，欢迎访问网页内容！(加载费时可能较长，请耐心等待)";
+                setTimeout(function () {
+                    window.close()
+                }, 11451);
+                
             }
         });
     </script>
