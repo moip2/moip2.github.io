@@ -93,9 +93,8 @@
     </style>
 </head>
 <body>
-
+    回答下列问题，方能知晓
     <h2 style="font-size: 200%; text-align: center; ">Q</h2>
-
     <form id="subscriberForm">
         <label for="fname" style="font-size:150%">
             篮球应该被他打.jpg的那页ppt上，图片中是那个人物？
@@ -103,27 +102,28 @@
         <input type="text" id="fname" name="fname"><br>
         <input type="submit" value="提交">
     </form>
-    <p id="message"></p>
-    <p class="hidden-element" id="myElement" style="text-align:center">
-        铁粉是黑的
-    </p>
+    <p id="message" style="background-color:black"></p>
     <form id="subscriberForm1">
         <label for="fname1" style="font-size:150%">
-            
+            晚三几点放学（00:00-24:00格式）
         </label><br>
         <input type="text" id="fname1" name="fname1"><br>
         <input type="submit" value="确定">
         <p id="message1"></p>
     </form>
+    <p class="hidden-element" id="myElement" style="text-align:center">
+        铁粉是黑的
+    </p>
     <script>
+        //问题二
         document.getElementById("subscriberForm1").addEventListener("submit", function (event) {
             event.preventDefault(); // 阻止表单提交默认行为
             var userAnswer = document.getElementById("fname1").value;
-            var correctAnswer = ""; // 这里设置答案
+            var correctAnswer = "9:30"; // 这里设置答案
             if (userAnswer === correctAnswer) {
-                document.getElementById("message").textContent = "回答正确，欢迎！";
-
+                document.getElementById("message1").textContent = "回答正确，欢迎！";
                 document.getElementById("myElement").style.display = "block"
+                document.getElementById("myElement4").style.display = "block"
             } else {
                 document.getElementById("message1").textContent = "回答正确，欢迎！";
                 setTimeout(function () {
@@ -134,16 +134,15 @@
         });
     </script>
     <script>
+        //问题一
         document.getElementById("subscriberForm").addEventListener("submit", function (event) {
             event.preventDefault(); // 阻止表单提交默认行为
             var userAnswer = document.getElementById("fname").value;
             var correctAnswer = "蔡徐坤"; // 这里设置答案
             if (userAnswer === correctAnswer) {
-                document.getElementById("message").textContent = "回答正确，欢迎访问网页内容！(加载费时可能较长，请耐心等待)";
-
-                document.getElementById("myElement").style.display = "block"
+                document.getElementById("message").textContent = "(加载费时可能较长，请耐心等待)";
             } else {
-                document.getElementById("message").textContent = "回答正确，欢迎访问网页内容！(加载费时可能较长，请耐心等待)";
+                document.getElementById("message").textContent = "(加载费时可能较长，请耐心等待)";
                 setTimeout(function () {
                     window.close()
                 }, 11451);
@@ -151,6 +150,7 @@
             }
         });
     </script>
+    <embed style="text-align:center" id="myElement4" class="hidden-element" src="assd.mp4" width="960" height="544">
 
 
 </body>
