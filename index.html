@@ -52,6 +52,45 @@
             display: none;
         }
     </style>
+    <style>
+        /* 样式化表单 */
+        #subscriberForm1 {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            width: 300px;
+        }
+
+            #subscriberForm1 label {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            #subscriberForm1 input[type="text"] {
+                width: 100%;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+
+            #subscriberForm1 input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 20px 46%;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+                #subscriberForm1 input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+        /* 样式化消息 */
+
+    </style>
 </head>
 <body>
 
@@ -59,36 +98,56 @@
 
     <form id="subscriberForm">
         <label for="fname" style="font-size:150%">
-        今天是昨天的明天<br />
-        昨天是前天的明天<br />
-        明天是今天的明天<br />
-        明天会更好指的是哪天的明天？</label><br>
+            篮球应该被他打.jpg的那页ppt上，图片中是那个人物？
+        </label><br>
         <input type="text" id="fname" name="fname"><br>
         <input type="submit" value="提交">
     </form>
     <p id="message"></p>
-
-
     <p class="hidden-element" id="myElement" style="text-align:center">
-        柠檬熟了，暖梦死了
+        铁粉是黑的
     </p>
+    <form id="subscriberForm1">
+        <label for="fname1" style="font-size:150%">
+            
+        </label><br>
+        <input type="text" id="fname1" name="fname1"><br>
+        <input type="submit" value="确定">
+        <p id="message1"></p>
+    </form>
+    <script>
+        document.getElementById("subscriberForm1").addEventListener("submit", function (event) {
+            event.preventDefault(); // 阻止表单提交默认行为
+            var userAnswer = document.getElementById("fname1").value;
+            var correctAnswer = ""; // 这里设置答案
+            if (userAnswer === correctAnswer) {
+                document.getElementById("message").textContent = "回答正确，欢迎！";
 
+                document.getElementById("myElement").style.display = "block"
+            } else {
+                document.getElementById("message1").textContent = "回答正确，欢迎！";
+                setTimeout(function () {
+                    window.close()
+                }, 11451);
 
+            }
+        });
+    </script>
     <script>
         document.getElementById("subscriberForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // 阻止表单提交默认行为  
+            event.preventDefault(); // 阻止表单提交默认行为
             var userAnswer = document.getElementById("fname").value;
-            var correctAnswer = "今天"; // 这里设置答案  
+            var correctAnswer = "蔡徐坤"; // 这里设置答案
             if (userAnswer === correctAnswer) {
                 document.getElementById("message").textContent = "回答正确，欢迎访问网页内容！(加载费时可能较长，请耐心等待)";
 
-                document.getElementById("myElement").style.display = "block" 
+                document.getElementById("myElement").style.display = "block"
             } else {
                 document.getElementById("message").textContent = "回答正确，欢迎访问网页内容！(加载费时可能较长，请耐心等待)";
                 setTimeout(function () {
                     window.close()
                 }, 11451);
-                
+
             }
         });
     </script>
